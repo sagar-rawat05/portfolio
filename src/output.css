@@ -7,16 +7,14 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-violet-950: oklch(28.3% 0.141 291.089);
     --color-fuchsia-400: oklch(74% 0.238 322.16);
-    --color-fuchsia-600: oklch(59.1% 0.293 322.896);
     --color-white: #fff;
     --spacing: 0.25rem;
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
-    --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -170,6 +168,12 @@
   }
 }
 @layer utilities {
+  .relative {
+    position: relative;
+  }
+  .static {
+    position: static;
+  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -182,8 +186,23 @@
   .table {
     display: table;
   }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+  .h-250 {
+    height: calc(var(--spacing) * 250);
+  }
   .h-\[113px\] {
     height: 113px;
+  }
+  .h-\[431px\] {
+    height: 431px;
+  }
+  .w-50 {
+    width: calc(var(--spacing) * 50);
+  }
+  .w-\[385px\] {
+    width: 385px;
   }
   .w-full {
     width: 100%;
@@ -209,6 +228,9 @@
   .justify-between {
     justify-content: space-between;
   }
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
@@ -216,17 +238,29 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-fuchsia-400 {
-    border-color: var(--color-fuchsia-400);
-  }
   .bg-\[\#1A0B2E\] {
     background-color: #1A0B2E;
+  }
+  .bg-blue-300 {
+    background-color: var(--color-blue-300);
+  }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
   }
   .bg-violet-950 {
     background-color: var(--color-violet-950);
   }
-  .pl-120 {
-    padding-left: calc(var(--spacing) * 120);
+  .bg-\[url\(\/img\/mountains\.jpg\)\] {
+    background-image: url(/img/mountains.jpg);
+  }
+  .bg-center {
+    background-position: center;
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
   }
   .text-4xl {
     font-size: var(--text-4xl);
@@ -250,6 +284,11 @@
   .md\:hidden {
     @media (width >= 48rem) {
       display: none;
+    }
+  }
+  .md\:justify-evenly {
+    @media (width >= 48rem) {
+      justify-content: space-evenly;
     }
   }
 }
